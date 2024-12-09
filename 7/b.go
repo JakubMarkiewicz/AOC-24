@@ -35,7 +35,6 @@ func B(input []I) {
 }
 
 func isValidB(input []int, curr, target int) bool {
-
 	if len(input) == 0 {
 		return curr == target
 	}
@@ -45,11 +44,7 @@ func isValidB(input []int, curr, target int) bool {
 	}
 
 	f := input[0]
-	iC := make([]int, len(input)-1)
-
-	for i := 1; i < len(input); i++ {
-		iC[i-1] = input[i]
-	}
+	iC := input[1:]
 
 	return isValidB(iC, curr*f, target) || isValidB(iC, curr+f, target) || isValidB(iC, concatInt(curr, f), target)
 }
